@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- Stylesheets for current page -->
+<link rel="stylesheet" href="../index.css">
+<link rel="stylesheet" href="index.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Font Awesome -->
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+
+<body class="container page-container">
+  <div class="box" style="background-color: none !important;">
+    <div id="heading">
+      <div class="row">
+        <div class="col-md-12">
+          <span class="center">
+            <h1 style="font-size:100px;" >Classroom Friend</h1>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="separator-lg"></div>
+
+    <div id="student-form">
+      <div class="row">
+        <div class="col-md-12">
+          <h4>If you're a student, enter a class code</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 big-line">
+          <input type="textarea" placeholder="e.g., ECSE 424"/>
+        </div>
+        <div class="col-md-2 big-line">
+          <a href="ask_question.html"><div class="btn btn-inverse fit big-btn">Join Class</div></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="separator-md"></div>
+
+    <div id="lecturer-form">
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Are you a lecturer?</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6"><span>Email</span></div>
+        <div class="col-md-4"><span>Password</span></div>
+        <div class="col-md-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 big-line"><input type="textarea" placeholder="e.g., john.doe@mail.mcgill.ca"/></div>
+        <div class="col-md-4 big-line"><input type="textarea" /></div>
+        <div class="col-md-2 big-line">
+          <a href="prof-ile.html"><div class="btn btn-inverse fit big-btn">Login</div></a>
+        </div>
+      </div>
+      <div class="separator-sm"></div>
+      <div class="row">
+        <div class="col-md-12" style="text-align:right;"><span>or <b data-toggle="modal" data-target="#create-account-modal" style="cursor:pointer">click here to create an account</b></span></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+<div id="create-account-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content" style="background-color:#4d4c4c; opacity:0.8;">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title center" style="border:none;">Create an Account</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="textarea" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+          <label for="pw">Password</label>
+          <input type="textarea" class="form-control" id="pw">
+        </div>
+        <div class="form-group">
+          <label for="cpw">Confirm Password</label>
+          <input type="textarea" class="form-control" id="cpw">
+        </div>
+        <div class="row">
+	  <div class="col-md-12 center big-line">
+            <a href="course_page.html"><button type="button" class="btn btn-inverse big-btn">Continue</button></a>
+          </div>
+	</div>
+      </div>
+    </div>
+  </div>
+</div>

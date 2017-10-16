@@ -1,0 +1,77 @@
+i {
+  cursor: pointer;
+}
+
+.section-padding {
+    padding-top:70px;
+    margin-top:-70px;
+}
+
+.big-text{
+  font-size: 20px;
+}
+
+.white{
+  color:white;
+}
+
+.section-padding .panel-body{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+body{
+  position: relative;
+  background-image: url("img/bg.png");
+  background-attachment: fixed;
+  background-size: 100%;
+}
+
+span, h1, h2, h3, h4, h5{
+  color: white !important;
+}
+
+.btn{
+  top: "50%";
+  left: "50%";
+}
+
+.big-btn{
+  font-size:30px !important; 
+  line-height: 35px !important;
+  height: 50px;
+}
+
+.big-line{
+  height: 50px;
+}
+
+input, textarea{
+  background-color:black !important;
+  color: white !important;
+  opacity: 0.6;
+  border: none;
+  box-shadow: 3px 3px 3px grey;
+  border-radius: 5px;
+  padding-left: 20px !important; 
+  font-size: 20px !important; 
+  width:100% !important;
+  height:100% !important;
+}
+
+.modal-body label{
+  color: white;
+}
+
+.close {
+  color: white !important; 
+  opacity: 0.6 !important;
+}
+
+.question{
+  background: #646464;
+  box-shadow: 3px 3px 3px grey; 
+  border-radius: 5px; 
+  padding-bottom: 10px !important;
+  padding-top: 10px !important;
+}
