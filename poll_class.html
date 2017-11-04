@@ -33,15 +33,33 @@
     <div id="heading">
       <div class="row">
         <div class="col-md-12">
-          <span class="center">
-            <h1 style="font-size:100px;" >Classroom Friend</h1>
-          </span>
+          <a href="prof-ile.html" class="page-header center">
+            <h1 style="font-size:100px;">Classroom Friend</h1>
+          </a>
         </div>
       </div>
     </div>
 
-    <div class="separator-lg"></div>
+    <div class="separator-md"></div>
 
+    <div id="heading-2">
+      <div class="row">
+	<div class="col-md-4 big-btn">
+	  <div class="row">
+	    <div class="col-md-6"></div>
+	    <div class="col-md-6">
+	      <a href="course_page.html"><div class="btn btn-inverse fit pull-right" style="font-size: 30px; padding-top: 10px; padding-bottom: 10px; padding-right: 10px; opacity: 0.5"><i class="icon-arrow-left"></i> Back</div></a>
+	    </div>
+	  </div>
+	</div>
+        <div class="col-md-4">
+          <span class="center" style="cursor:default">
+            <h1 style="font-size:48px;">CHEM 110</h1>
+          </span>
+        </div>
+	<div class="col-md-4"></div>
+      </div>
+    </div>
 
     <div class="row"><div class="col-md-12"><span>Question</span></div></div>
     <div class="separator-sm"></div>
@@ -86,7 +104,7 @@
 
     <div id="response_counter" class="row" style="display:none">
       <div class="col-md-4"></div>
-      <div class="col-md-4"><div class="btn btn-inverse fit">15 out of 20 students have answered</div></div>
+      <div class="col-md-4"><div class="btn btn-inverse fit disabled">15 out of 20 students have answered</div></div>
       <div class="col-md-4"></div>
     </div>
 
@@ -119,7 +137,7 @@
             <div id="poll-question">
               <div class="row">
                 <div class="col-md-1"></div>
-                <div class="col-md-10 big-text center"><span>Who is objectively the best team member?</span></div>
+                <div class="col-md-10 big-text center"><span>What is your favorite fruit?</span></div>
                 <div class="col-md-1"></div>
               </div>
               <div class="separator-md"></div>
@@ -130,9 +148,10 @@
               </div>
              <div class="separator-md"></div>
              <div class="row">
-               <div class="col-md-3"><div class="btn btn-inverse fit">Show class</div></div>
-               <div class="col-md-4"><div class="btn btn-inverse fit">Create new poll</div></div>
-               <div class="col-md-5"><div class="btn btn-inverse fit">Return to questions</div></div>
+		<div class="col-md-1"></div>
+               <div class="col-md-4"><a href="poll_class.html"><div class="btn btn-inverse fit">New poll</div></a></div>
+               <div class="col-md-6"><a href="course_page.html"><div class="btn btn-inverse fit">Return to question feed</div></a></div>
+		<div class="col-md-1"></div>
              </div>
           </div>
           <div class="col-md-1"></div>
@@ -143,16 +162,16 @@
 </div>
 
 <script>
-  var data= { labels: ['1', '2', '3'], series: [{data:[5, 5, 5]}]};
+  var data= { labels: ['1', '2', '3'], series: [{data:[10, 5, 15]}]};
   var options = {
     axisX: {
       labelInterpolationFnc: function(value) {
         if(value=='1')
-          return "Saahil";
+          return "Apple";
         else if(value=='2')
-          return "Thomas";
+          return "Orange";
         else
-          return "Albert";
+          return "Banana";
       }
     }
   }
@@ -161,4 +180,6 @@
   $("#poll-results-modal").on("shown.bs.modal",function(e){
     chart.update();
   });
+
+  $(document).on('click', ".modal-backdrop", function(){$(".modal").click();});
 </script>

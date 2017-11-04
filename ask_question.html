@@ -25,36 +25,80 @@
     <div id="heading">
       <div class="row">
         <div class="col-md-12">
-          <span class="center">
-            <h1 style="font-size:100px;" >Classroom Friend</h1>
-          </span>
+          <a href="index.html" class="page-header center">
+            <h1 style="font-size:100px;">Classroom Friend</h1>
+          </a>
         </div>
       </div>
     </div>
 
-    <div class="separator-lg"></div>
+    <div class="separator-md"></div>
 
-    <div class="row custom-bar" style="overflow-y: auto; overflow-x: hidden; height: 325px">
+    <div id="heading-2">
+      <div class="row">
+	<div class="col-md-4 big-btn">
+	  <div class="row">
+	    <div class="col-md-6"></div>
+	    <div class="col-md-6">
+	      <a href="index.html"><div class="btn btn-inverse fit pull-right" style="font-size: 30px; padding-top: 10px; padding-bottom: 10px; padding-right: 10px; opacity: 0.5"><i class="icon-arrow-left"></i> Back</div></a>
+	    </div>
+	  </div>
+	</div>
+        <div class="col-md-4">
+          <span class="center" style="cursor:default">
+            <h1 style="font-size:48px;">CHEM 110</h1>
+          </span>
+        </div>
+	<div class="col-md-4"></div>
+      </div>
+    </div>
+
+    <div id="questions-container" class="row custom-bar" style="overflow-y: auto; overflow-x: hidden; height: 280px">
       <div class="col-md-1"></div>
       <div id="polling-results" class="col-md-10" style="padding-left: 20px; padding-top: 10px; padding-bottom: 10px;">
+
+	<div class="separator-md">
+
+          <div id="new-question" class="my-question row bg-primary" style="display:none;">
+	    <div class="col-md-11" style="padding-left:30px">
+	      <div class="row">
+	        <div class="col-md-10">
+	          <span class="big-text">What is your favorite fruit?</span>
+                </div>
+	        <div class="col-md-1 center"><i class="icon-thumbs-up icon-large white"></i></div>
+                <div class="col-md-1 center"><i class="icon-thumbs-down icon-large white"></i></div>
+	      </div>
+	      <div class="row">
+	        <div class="col-md-10 arrow" style="padding-left: 40px">
+	          <span>Status: Not answered</span>
+                </div>
+	        <div class="col-md-1 center arrow"><span>0</span></div>
+                <div class="col-md-1 center arrow"><span>0</span></div>
+	      </div>
+	    </div>
+            <div class="col-md-1 center" style="padding-top:5px"><i class="icon-trash icon-2x" style="color:#800000;"></i></div>
+          </div>
+
+          <div id="new-question-separator" class="separator-sm" style="display:none;"></div>
+
           <div class="question row">
 	    <div class="col-md-11" style="padding-left:30px">
 	      <div class="row">
 	        <div class="col-md-10">
 	          <span class="big-text">What is the conversion for cm to inches?</span>
                 </div>
-	        <div class="col-md-1 center"><i class="icon-thumbs-up icon-large white"></i></div>
-                <div class="col-md-1 center"><i class="icon-thumbs-down icon-large white"></i></div>
+	        <div class="col-md-1 center arrow"><i class="icon-thumbs-up icon-large white"></i></div>
+                <div class="col-md-1 center arrow"><i class="icon-thumbs-down icon-large white"></i></div>
 	      </div>
 	      <div class="row">
-	        <div class="col-md-10" style="padding-left: 40px">
+	        <div class="col-md-10 arrow" style="padding-left: 40px">
 	          <span>Status: Answered in class</span>
                 </div>
-	        <div class="col-md-1 center"><span>19</span></div>
-                <div class="col-md-1 center"><span>2</span></div>
+	        <div class="col-md-1 center arrow"><span>19</span></div>
+                <div class="col-md-1 center arrow"><span>2</span></div>
 	      </div>
 	    </div>
-            <div class="col-md-1" style="padding-top:5px"><i class="icon-flag icon-2x" style="color:#800000;"></i></div>
+            <div class="col-md-1 center" style="padding-top:5px"><i class="icon-flag icon-2x" style="color:#800000;"></i></div>
           </div>
 
           <div class="separator-sm"></div>
@@ -65,62 +109,18 @@
 	        <div class="col-md-10">
 	          <span class="big-text">I forgot how to apply last weeks formula</span>
                 </div>
-	        <div class="col-md-1 center"><i class="icon-thumbs-up icon-large white"></i></div>
-                <div class="col-md-1 center"><i class="icon-thumbs-down icon-large white"></i></div>
+	        <div class="col-md-1 center arrow"><i class="icon-thumbs-up icon-large white"></i></div>
+                <div class="col-md-1 center arrow"><i class="icon-thumbs-down icon-large white"></i></div>
 	      </div>
 	      <div class="row">
-	        <div class="col-md-10" style="padding-left: 40px">
+	        <div class="col-md-10 arrow" style="padding-left: 40px">
 	          <span>Status: See after class</span>
                 </div>
 	        <div class="col-md-1 center"><span>15</span></div>
                 <div class="col-md-1 center"><span>3</span></div>
 	      </div>
 	    </div>
-            <div class="col-md-1" style="padding-top:5px"><i class="icon-flag icon-2x" style="color:#800000;"></i></div>
-          </div>
-
-          <div class="separator-sm"></div>
-
-          <div class="question row">
-	    <div class="col-md-11" style="padding-left:30px">
-	      <div class="row">
-	        <div class="col-md-10">
-	          <span class="big-text">How is this relevant to the reading?</span>
-                </div>
-	        <div class="col-md-1 center"><i class="icon-thumbs-up icon-large white"></i></div>
-                <div class="col-md-1 center"><i class="icon-thumbs-down icon-large white"></i></div>
-	      </div>
-	      <div class="row">
-	        <div class="col-md-10" style="padding-left: 40px">
-	          <span>Status: Answered in class</span>
-                </div>
-	        <div class="col-md-1 center"><span>5</span></div>
-                <div class="col-md-1 center"><span>6</span></div>
-	      </div>
-	    </div>
-            <div class="col-md-1" style="padding-top:5px"><i class="icon-flag icon-2x" style="color:#800000;"></i></div>
-          </div>
-
-          <div class="separator-sm"></div>
-
-          <div class="question row">
-	    <div class="col-md-11" style="padding-left:30px">
-	      <div class="row">
-	        <div class="col-md-10">
-	          <span class="big-text">What's going to be on the midterm next month?</span>
-                </div>
-	        <div class="col-md-1 center"><i class="icon-thumbs-up icon-large white"></i></div>
-                <div class="col-md-1 center"><i class="icon-thumbs-down icon-large white"></i></div>
-	      </div>
-	      <div class="row">
-	        <div class="col-md-10" style="padding-left: 40px">
-	          <span>Status: Answered in class</span>
-                </div>
-	        <div class="col-md-1 center"><span>3</span></div>
-                <div class="col-md-1 center"><span>10</span></div>
-	      </div>
-	    </div>
-            <div class="col-md-1" style="padding-top:5px"><i class="icon-flag icon-2x" style="color:#800000;"></i></div>
+            <div class="col-md-1 center" style="padding-top:5px"><i class="icon-flag icon-2x" style="color:#800000;"></i></div>
           </div>
 
           <div class="separator-sm"></div>
@@ -131,18 +131,62 @@
 	        <div class="col-md-10">
 	          <span class="big-text">hi</span>
                 </div>
-	        <div class="col-md-1 center"><i class="icon-thumbs-up icon-large white"></i></div>
-                <div class="col-md-1 center"><i class="icon-thumbs-down icon-large white"></i></div>
+	        <div class="col-md-1 center arrow"><i class="icon-thumbs-up icon-large white"></i></div>
+                <div class="col-md-1 center arrow"><i class="icon-thumbs-down icon-large white"></i></div>
 	      </div>
 	      <div class="row">
-	        <div class="col-md-10" style="padding-left: 40px">
+	        <div class="col-md-10 arrow" style="padding-left: 40px">
 	          <span>Status: Answered in class</span>
                 </div>
 	        <div class="col-md-1 center"><span>0</span></div>
                 <div class="col-md-1 center"><span>6</span></div>
 	      </div>
 	    </div>
-            <div class="col-md-1" style="padding-top:5px"><i class="icon-flag icon-2x" style="color:#800000;"></i></div>
+            <div class="col-md-1 center" style="padding-top:5px"><i class="icon-flag icon-2x" style="color:#800000;"></i></div>
+          </div>
+
+          <div class="separator-sm"></div>
+
+          <div class="question row">
+	    <div class="col-md-11" style="padding-left:30px">
+	      <div class="row">
+	        <div class="col-md-10">
+	          <span class="big-text">How is this relevant to the reading?</span>
+                </div>
+	        <div class="col-md-1 center arrow"><i class="icon-thumbs-up icon-large white"></i></div>
+                <div class="col-md-1 center arrow"><i class="icon-thumbs-down icon-large white"></i></div>
+	      </div>
+	      <div class="row">
+	        <div class="col-md-10 arrow" style="padding-left: 40px">
+	          <span>Status: Answered in class</span>
+                </div>
+	        <div class="col-md-1 center"><span>5</span></div>
+                <div class="col-md-1 center"><span>6</span></div>
+	      </div>
+	    </div>
+            <div class="col-md-1 center" style="padding-top:5px"><i class="icon-flag icon-2x" style="color:#800000;"></i></div>
+          </div>
+
+          <div class="separator-sm"></div>
+
+          <div class="question row">
+	    <div class="col-md-11" style="padding-left:30px">
+	      <div class="row">
+	        <div class="col-md-10">
+	          <span class="big-text">What's going to be on the midterm next month?</span>
+                </div>
+	        <div class="col-md-1 center arrow"><i class="icon-thumbs-up icon-large white"></i></div>
+                <div class="col-md-1 center arrow"><i class="icon-thumbs-down icon-large white"></i></div>
+	      </div>
+	      <div class="row">
+	        <div class="col-md-10 arrow" style="padding-left: 40px">
+	          <span>Status: Answered in class</span>
+                </div>
+	        <div class="col-md-1 center"><span>3</span></div>
+                <div class="col-md-1 center"><span>10</span></div>
+	      </div>
+	    </div>
+            <div class="col-md-1 center" style="padding-top:5px"><i class="icon-flag icon-2x" style="color:#800000;"></i></div>
           </div>
 
           <div class="separator-sm"></div>
@@ -153,18 +197,18 @@
 	        <div class="col-md-10">
 	          <span class="big-text">HAHAHAHHA SPAM SPAM SPAM SPAM</span>
                 </div>
-	        <div class="col-md-1 center"><i class="icon-thumbs-up icon-large white"></i></div>
-                <div class="col-md-1 center"><i class="icon-thumbs-down icon-large white"></i></div>
+	        <div class="col-md-1 center arrow"><i class="icon-thumbs-up icon-large white"></i></div>
+                <div class="col-md-1 center arrow"><i class="icon-thumbs-down icon-large white"></i></div>
 	      </div>
 	      <div class="row">
-	        <div class="col-md-10" style="padding-left: 40px">
+	        <div class="col-md-10 arrow" style="padding-left: 40px">
 	          <span>Status: Answered in class</span>
                 </div>
 	        <div class="col-md-1 center"><span>0</span></div>
                 <div class="col-md-1 center"><span>12</span></div>
 	      </div>
 	    </div>
-            <div class="col-md-1" style="padding-top:5px"><i class="icon-flag icon-2x" style="color:#800000;"></i></div>
+            <div class="col-md-1 center" style="padding-top:5px"><i class="icon-flag icon-2x" style="color:#800000;"></i></div>
           </div>
 
         </div>
@@ -174,7 +218,7 @@
 
     <div class="separator-md"></div>
 
-    <div id="poll-button" class="row">
+    <div id="poll" class="row">
       <div class="col-md-1"></div>
       <div class="col-md-8 big-line">
         <input type="textarea" placeholder="Enter question here"/>
@@ -204,20 +248,20 @@
             <div id="poll-question">
 	      <div class="row">
 	        <div class="col-md-1"></div>
-	        <div class="col-md-10 big-text center"><span>Who is objectively the best team member?</span></div>
+	        <div class="col-md-10 big-text center"><span>What is your favorite fruit?</span></div>
                 <div class="col-md-1"></div>
               </div>
 	      <div class="separator-lg"></div>
 	      <div class="row">
-                <div class="col-md-4"><div class="btn btn-inverse fit response-button">Saahil</div></div>
-                <div class="col-md-4"><div class="btn btn-inverse fit response-button">Thomas</div></div>
-                <div class="col-md-4"><div class="btn btn-inverse fit response-button">Albert</div></div>
+                <div class="col-md-4"><div class="btn btn-inverse fit response-button">Apple</div></div>
+                <div class="col-md-4"><div class="btn btn-inverse fit response-button">Orange</div></div>
+                <div class="col-md-4"><div class="btn btn-inverse fit response-button">Banana</div></div>
 	      </div>
             </div>
             <div id="poll-answer" style="display:none;">
 	      <div class="row">
                 <div class="col-md-1"></div>
-                <div class="col-md-10 big-text center"><span>Who is objectively the best team member?</span></div>
+                <div class="col-md-10 big-text center"><span>What is your favorite fruit?</span></div>
                 <div class="col-md-1"></div>
               </div>
               <div class="separator-md"></div>
@@ -240,16 +284,16 @@ $(document).ready(function(){
   $(document).on("click", ".response-button", function(){
     $("#poll-question").hide();
     $("#poll-answer").show();
-    var data= { labels: ['1', '2', '3'], series: [{data:[5, 5, 5]}]};
+    var data= { labels: ['1', '2', '3'], series: [{data:[10, 5, 15]}]};
     var options = {
       axisX: {
         labelInterpolationFnc: function(value) {
           if(value=='1')
-	    return "Saahil";
+	    return "Apple";
 	  else if(value=='2')
-	    return "Thomas";
+	    return "Orange";
 	  else
-	    return "Albert";
+	    return "Banana";
         }
       }
     };
@@ -267,4 +311,51 @@ $(document).ready(function(){
             });
         });
     })(jQuery);
+
+  var submit_question = function(){
+    if($("#poll input").val()!=""){
+      $("#new-question .big-text").text($("#poll input").val());
+      $("#new-question").show();
+      $("#new-question-separator").show();
+      $("#poll input").val("");
+    }
+  }
+
+  $("#poll .btn").click(submit_question);
+
+  $("#questions-container").attr("style", $("#questions-container").attr("style") + ";height:" + ($(document).height() - 400) + "px");
+
+  $('#poll input').keydown(function (event) {
+    var keypressed = event.keyCode || event.which;
+    if (keypressed == 13)
+        submit_question();
+  });
+
+  $(document).keydown(function (event) {
+    var keypressed = event.keyCode || event.which;
+    if (keypressed == 13)
+        $('#poll input').select();
+  });
+
+  $(document).ready(function(){
+    $(document).on('click', '.icon-trash', function(){
+      $(this).closest('.my-question, .question-separator').hide();
+    });
+
+    $(document).on('click', ".modal-backdrop", function(){$(".modal").click();});
+
+    $(".icon-thumbs-up").click(function(){
+      if($(this).parent().parent().find(".icon-thumbs-down").hasClass("white")){
+        $(this).toggleClass("white");
+        $(this).toggleClass("text-primary");
+      }
+    });
+
+    $(".icon-thumbs-down").click(function(){
+      if($(this).parent().parent().find(".icon-thumbs-up").hasClass("white")){
+        $(this).toggleClass("white");
+        $(this).toggleClass("text-danger");
+      }
+    });
+  });
 </script>

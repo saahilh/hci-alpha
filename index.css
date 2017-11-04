@@ -15,6 +15,14 @@ i {
   color:white;
 }
 
+.red{
+  color:red;
+}
+
+.green{
+  color:green;
+}
+
 .section-padding .panel-body{
   padding-top: 50px;
   padding-bottom: 50px;
@@ -46,7 +54,7 @@ span, h1, h2, h3, h4, h5{
   height: 50px;
 }
 
-input, textarea{
+input, textarea, password{
   background-color:black !important;
   color: white !important;
   opacity: 0.6;
@@ -74,4 +82,18 @@ input, textarea{
   border-radius: 5px; 
   padding-bottom: 10px !important;
   padding-top: 10px !important;
+}
+
+.my-question{
+  box-shadow: 3px 3px 3px grey; 
+  border-radius: 5px; 
+  padding-bottom: 10px !important;
+  padding-top: 10px !important;
+}
+
+.page-header, .page-header:hover
+{   
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
 }
