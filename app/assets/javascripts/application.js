@@ -13,3 +13,5 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){$(document).on('click', ".modal-backdrop", function(){$(".modal").click();});});

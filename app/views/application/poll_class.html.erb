@@ -1,0 +1,40 @@
+<%= render 'heading2', course: "CHEM 110", href: "course_page.html", button_text: "Back" %>
+
+<div class="row"><div class="col-md-12"><span>Question</span></div></div>
+<div class="separator-sm"></div>
+
+<div id="poll-form" class="form-group">
+
+  <div class="row">
+    <div class="col-md-12 big-line"><input type="textarea" class="form-control" placeholder="Type your question for the poll here"/></div>
+  </div>
+
+  <div class="separator-md"></div>
+
+</div>
+
+<div id="add_or_remove_options" class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-4"><div id="add-option" class="btn btn-inverse fit">Add Option</div></div>
+  <div class="col-md-4"><div id="remove-option" class="btn btn-inverse fit">Remove Option</div></div>
+  <div class="col-md-2"></div>
+</div>
+
+<div id="response_counter" class="row" style="display:none">
+  <div class="col-md-4"></div>
+  <div class="col-md-4"><div class="btn btn-inverse fit disabled">15 out of 20 students have answered</div></div>
+  <div class="col-md-4"></div>
+</div>
+
+<div class="separator-md"></div>
+
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4 big-line">
+    <div id="start_polling" class="btn btn-inverse fit big-btn"><span>Initiate Polling</span></div>
+    <div id="stop_polling" class="btn btn-inverse fit big-btn" style="display:none; cursor:pointer;"><span data-toggle="modal" data-target="#poll-results-modal">End poll and view results</span></div>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+
+<%= render 'poll_results_modal' %>

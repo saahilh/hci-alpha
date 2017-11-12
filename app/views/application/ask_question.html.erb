@@ -1,0 +1,37 @@
+<%= render 'heading2', href:"index.html", button_text: "Back", course: "CHEM 110" %>
+
+<div id="questions-container" class="row custom-bar" style="overflow-y: auto; overflow-x: hidden; height: 280px">
+  <div class="col-md-1"></div>
+  <div id="polling-results" class="col-md-10" style="padding-left: 20px; padding-top: 10px; padding-bottom: 10px;">
+    <div class="separator-md"></div>
+      <%= render 'student_question', question: "What is the conversion for cm to inches?", status: "Answered in class", upvote_count: 19, downvote_count: 2 %>
+
+      <%= render 'student_question', question: "I forgot how to apply last weeks formula", status: "See after class", upvote_count: 15, downvote_count: 3 %>
+
+      <%= render 'student_question', question: "How is this relevant to the reading?", status: "Answered in class", upvote_count: 5, downvote_count: 6 %>
+
+      <%= render 'student_question', question: "What's going to be on the midterm next month?", status: "Answered in class", upvote_count: 3, downvote_count: 10 %>
+
+      <%= render 'student_question', question: "hi", status: "Answered in class", upvote_count: 0, downvote_count: 6 %>
+
+      <%= render 'student_question', question: "HAHAHAHHA SPAM SPAM SPAM SPAM", status: "Answered in class", upvote_count: 0, downvote_count: 12 %>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+
+<div class="separator-md"></div>
+
+<div id="poll" class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-8 big-line">
+    <input type="textarea" placeholder="Enter question here"/>
+  </div>
+  <div class="col-md-1 big-line center" style="padding-right:5px"><div class="btn btn-inverse fit big-btn">Ask</div></div>
+  <div class="col-md-2"></div>
+</div>
+
+<div class="col-md-12" style="text-align:right;">
+  <b data-toggle="modal" data-target="#poll-modal" style="cursor:pointer">click here to test poll modal</b>
+</div>
+
+<%= render 'poll_modal' %>
