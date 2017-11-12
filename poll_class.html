@@ -19,6 +19,26 @@
 
 
 <script>
+  var optionCount = 0;
+
+  function addOption(){
+    $("#poll-form").append($('<div class="separator-md"></div>'));
+    optionCount += 1;   
+    var e = '<div id="option' + optionCount + '" class="row"><div class="col-md-1"><span>Option ' + optionCount + '</span></div><div class="col-md-11 big-line"><input id="opt' + optionCount + '" type="textarea" class="form-control" placeholder="Type an answer for the poll here"/></div></div>'
+    $("#poll-form").append($(e));
+  }
+
+  $(document).ready(function(){ addOption(); addOption(); addOption();});
+
+  function removeOption(){
+    $("#poll-form separator-md").last().remove();
+    $("#option" + optionCount).remove();
+    optionCount -= 1;
+  }
+
+  $(document).on("click", "#add-option", addOption);
+  $(document).on("click", "#remove-option", removeOption);
+
   $(document).on("click", "#start_polling", function(){
     $("#add_or_remove_options").hide();
     $("#response_counter").show();
@@ -46,6 +66,7 @@
       <div class="row">
 	<div class="col-md-4 big-btn">
 	  <div class="row">
+
 	    <div class="col-md-6"></div>
 	    <div class="col-md-6">
 	      <a href="course_page.html"><div class="btn btn-inverse fit pull-right" style="font-size: 30px; padding-top: 10px; padding-bottom: 10px; padding-right: 10px; opacity: 0.5"><i class="icon-arrow-left"></i> Back</div></a>
@@ -72,34 +93,13 @@
 
     <div class="separator-md"></div>
 
-    <div class="row">
-      <div class="col-md-1"><span>Option 1</span></div>
-      <div class="col-md-11 big-line"><input id="opt1" type="textarea" class="form-control" placeholder="Type an answer for the poll here"/></div>
     </div>
-
-    <div class="separator-md"></div>
-
-    <div class="row">
-      <div class="col-md-1"><span>Option 2</span></div>
-      <div class="col-md-11 big-line"><input id="opt2" type="textarea" class="form-control" placeholder="Type an answer for the poll here"/></div>
-    </div>
-
-    <div class="separator-md"></div>
-
-    <div class="row">
-      <div class="col-md-1"><span>Option 3</span></div>
-      <div class="col-md-11 big-line"><input id="opt3" type="textarea" class="form-control" placeholder="Type an answer for the poll here"/></div>
-    </div>
-
-    <div class="separator-md"></div>
 
     <div id="add_or_remove_options" class="row">
       <div class="col-md-2"></div>
-      <div class="col-md-4"><div class="btn btn-inverse fit">Add Option</div></div>
-      <div class="col-md-4"><div class="btn btn-inverse fit">Remove Option</div></div>
+      <div class="col-md-4"><div id="add-option" class="btn btn-inverse fit">Add Option</div></div>
+      <div class="col-md-4"><div id="remove-option" class="btn btn-inverse fit">Remove Option</div></div>
       <div class="col-md-2"></div>
-    </div>
-
     </div>
 
     <div id="response_counter" class="row" style="display:none">
@@ -108,7 +108,7 @@
       <div class="col-md-4"></div>
     </div>
 
-    <div class="separator-lg"></div>
+    <div class="separator-md"></div>
 
     <div class="row">
       <div class="col-md-4"></div>
@@ -122,11 +122,10 @@
   </div>
 </body>
 
-<div id="poll-results-modal" class="modal fade" role="dialog" style="overflow-y: hidden !important">
+<div id="poll-results-modal" class="modal fade" data-backdrop="static" role="dialog" style="overflow-y: hidden !important">
   <div class="modal-dialog fit">
     <div class="modal-content" style="background-color:#4d4c4c; opacity:0.8;">
       <div class="modal-header">
-        <button class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title center" style="border:none;">Poll</h4>
       </div>
       <div class="modal-body">
@@ -153,6 +152,7 @@
                <div class="col-md-6"><a href="course_page.html"><div class="btn btn-inverse fit">Return to question feed</div></a></div>
 		<div class="col-md-1"></div>
              </div>
+	     <div class="separator-md"></div>
           </div>
           <div class="col-md-1"></div>
         </div>

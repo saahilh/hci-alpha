@@ -77,7 +77,7 @@ input, textarea, password{
 }
 
 .question{
-  background: #646464;
+  background: #8c8c8c;
   box-shadow: 3px 3px 3px grey; 
   border-radius: 5px; 
   padding-bottom: 10px !important;
