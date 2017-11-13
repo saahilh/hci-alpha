@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'select_course' => "application#index"
 
   get "courses/*id/course_page" => "courses#course_page"
+  get 'courses/*id/poll_class' => 'courses#poll'
 
   post "/questions/*id/delete" => "questions#delete"
   post "/questions/*id/in_class" => "questions#in_class"
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
 
   post 'courses/*id/ask_question' => "courses#ask_question"
   post 'courses/*id/delete' => "courses#delete"
+  post "courses/*id/submit_poll" => "courses#test_poll"
 
   post "login" => "lecturers#login"
   post 'select_course' => "courses#select_course"

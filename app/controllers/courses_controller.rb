@@ -15,6 +15,7 @@ class CoursesController < ActionController::Base
 
 	def create
 		new_course = params[:new_course]
+		
 		if(new_course.blank?)
 			msg = "Error: no name entered"
 		elsif(Course.where(name: new_course).count != 0)
@@ -29,8 +30,13 @@ class CoursesController < ActionController::Base
 
 	def ask_question
 		course = Course.find(params[:id])
-		Question.create(question: params[:question], upvotes: 0, downvotes: 0, status: "pending", course_id: course.id) if(!params[:question].blank?)
-		render 'ask_question', locals: { course: course }
+		if(!params[:question].blank?)
+			question = Question.create(question: params[:question], upvotes: 0, downvotes: 0, status: "pending", course_id: course.id)
+			CourseChannel.broadcast_to(course, 
+				question: render_to_string('_student_questions', layout:false, locals: {question: question}),
+				prof_question: render_to_string('_prof_questions', layout:false, locals: {question: question})
+			)
+		end
 	end
 
 	def course_page
@@ -43,5 +49,13 @@ class CoursesController < ActionController::Base
 		Question.where(course_id: course.id).delete_all
 		course.delete
 		redirect_to "/lecturers/#{lecturer}/"
+	end
+
+	def poll
+		render 'poll_class', locals:{ course: Course.find(params[:id]) }
+	end
+
+	def test_poll
+		puts params
 	end
 end

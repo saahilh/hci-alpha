@@ -1,32 +1,50 @@
 class QuestionsController < ActionController::Base
 	def delete
 		question = Question.find(params[:id])
-		course = question.course.id
+		course = Course.find(question.course.id)
+		question_id = question.id
 		question.delete
-		redirect_to "/courses/#{course}/course_page"
+		
+		CourseChannel.broadcast_to(course, 
+			delete_question: question_id
+		)
 	end
 
 	def in_class
 		question = Question.find(params[:id])
 		question.update_column(:status, "answered in class")
-		redirect_to "/courses/#{question.course.id}/course_page"
+		
+		CourseChannel.broadcast_to(Course.find(question.course.id), 
+			in_class: question.id
+		)
 	end
 
 	def after_class
 		question = Question.find(params[:id])
 		question.update_column(:status, "will answer after class")
-		redirect_to "/courses/#{question.course.id}/course_page"
+		
+		CourseChannel.broadcast_to(Course.find(question.course.id), 
+			after_class: question.id
+		)
 	end
 
 	def thumbsup
 		question = Question.find(params[:id])
 		question.update_column(:upvotes, question.upvotes + 1)
-		redirect_to "/courses/#{question.course.id}/ask_question"
+		
+		CourseChannel.broadcast_to(Course.find(question.course.id), 
+			thumbsup: question.id,
+			count: question.upvotes
+		)
 	end
 
 	def thumbsdown
 		question = Question.find(params[:id])
 		question.update_column(:downvotes, question.downvotes + 1)
-		redirect_to "/courses/#{question.course.id}/ask_question"
+		
+		CourseChannel.broadcast_to(Course.find(question.course.id), 
+			thumbsdown: question.id,
+			count: question.downvotes
+		)
 	end
 end

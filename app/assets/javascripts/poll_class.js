@@ -3,7 +3,7 @@
   function addOption(){
     $("#poll-form").append($('<div class="separator-md"></div>'));
     optionCount += 1;   
-    var e = '<div id="option' + optionCount + '" class="row"><div class="col-md-1"><span>Option ' + optionCount + '</span></div><div class="col-md-11 big-line"><input id="opt' + optionCount + '" type="textarea" class="form-control" placeholder="Type an answer for the poll here"/></div></div>'
+    var e = '<div id="option' + optionCount + '" class="row"><div class="col-md-1"><span>Option ' + optionCount + '</span></div><div class="col-md-11 big-line"><input id="opt' + optionCount + '" name="opt' + optionCount + '" type="textarea" class="form-control" placeholder="Type an answer for the poll here"/></div></div>'
     $("#poll-form").append($(e));
   }
 
@@ -26,6 +26,10 @@
     $(".form-control").attr("disabled", "disabled");
   });
 
+  $(document).on('click', ".modal-backdrop", function(){$(".modal").click();});
+
+  //$(document.on('page:change',function(){$("#poll-form").attr("style", $("#poll-form").attr("style") + ";height:" + ($(document).height() - 400) + "px");});
+
   // var data= { labels: ['1', '2', '3'], series: [{data:[10, 5, 15]}]};
   // var options = {
   //   axisX: {
@@ -44,5 +48,3 @@
   // $("#poll-results-modal").on("shown.bs.modal",function(e){
   //   chart.update();
   // });
-
-  $(document).on('click', ".modal-backdrop", function(){$(".modal").click();});

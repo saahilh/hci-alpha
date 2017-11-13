@@ -1,63 +1,43 @@
 <%= render 'heading2', href:"/index.html", button_text: "Leave Class", course: course.name, icon: "icon-arrow-left", logout: false %>
 
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.1.2/coffee-script.min.js"></script>
+
+<script type="text/coffeescript">
+  App.cable.subscriptions.create { channel: "CourseChannel", room: "<%=course.name%>" },
+    received: (data) ->
+      if data["question"]?
+        $("#questions").append(data["question"])
+      else if data["delete_question"]?
+        $("#questions #q" + data["delete_question"]).remove();
+      else if data["in_class"]?
+        $("#questions #q" + data["in_class"] + " .status").text("Status: answered in class")
+      else if data["after_class"]?
+        $("#questions #q" + data["after_class"] + " .status").text("Status: will answer after class")
+      else if data["thumbsup"]?
+        $("#q"+ data["thumbsup"] + " .upvotes").text(" " + data["count"]);
+      else if data["thumbsdown"]?
+        $("#q"+ data["thumbsdown"] + " .downvotes").text(" " + data["count"]);
+</script>
+
 <div id="questions-container" class="row custom-bar" style="overflow-y: auto; overflow-x: hidden; height: 280px">
   <div class="col-md-1"></div>
-  <div id="polling-results" class="col-md-10" style="padding-left: 20px; padding-top: 10px; padding-bottom: 10px;">
+  <div id="questions" class="col-md-10" style="padding-left: 20px; padding-top: 10px; padding-bottom: 10px;">
     <div class="separator-md"></div>
     <% if course.questions.count==0 %>
     <h1 class="center"> No questions available </h1>
     <div class="separator-md"></div>
     <% else %>
     <% course.questions.order("upvotes DESC").all.each do |question| %>
-    <div class="question row">
-      <div class="col-md-11" style="padding-left:30px">
-        <div class="row">
-          <div class="col-md-10">
-            <span class="big-text"><%= question.question %></span>
-          </div>
-          <div class="col-md-1 center arrow">
-            <form action="/questions/<%=question.id%>/thumbsup" method="post">
-              <button type="submit" class="btn btn-outline-primary">
-                <span class="icon-thumbs-up text-primary"></span>
-              </button>
-            </form>
-          </div>
-          <div class="col-md-1 center arrow">
-            <form action="/questions/<%=question.id%>/thumbsdown" method="post">
-              <button type="submit" class="btn btn-outline-danger">
-                <span class="icon-thumbs-down text-danger"></span>
-              </button>
-            </form>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-10 arrow" style="padding-left: 40px">
-            <span>Status: <%= question.status %></span>
-          </div>
-          <div class="col-md-1 center arrow">
-            <span><%= question.upvotes %></span>
-          </div>
-          <div class="col-md-1 center arrow">
-            <span><%= question.downvotes %></span>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-1 center" style="padding-top:5px">
-        <i class="icon-flag icon-2x" style="color:#800000;"></i>
-      </div>
-    </div>
-
-    <div class="separator-sm"></div>
+    <%= render 'student_questions', question: question %>
     <% end %>
     <% end %>
-
-    <div class="col-md-1"></div>
   </div>
+  <div class="col-md-1"></div>
 </div>
 
 <div class="separator-md"></div>
 
-<form action="/courses/<%=course.id%>/ask_question" method="post">
+<form action="/courses/<%=course.id%>/ask_question" method="post" data-remote="true">
   <div id="ask" class="row">
     <div class="col-md-1"></div>
     <div class="col-md-7 big-line">

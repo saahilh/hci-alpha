@@ -1,0 +1,41 @@
+<div id="q<%=question.id%>">
+  <div class="question row">
+    <div class="col-md-11" style="padding-left:30px">
+      <div class="row">
+        <div class="col-md-10">
+          <span class="big-text"><%= question.question %></span>
+        </div>
+        <div class="col-md-1 center arrow">
+          <form data-remote="true" action="/questions/<%=question.id%>/thumbsup" method="post">
+            <button type="submit" class="btn btn-outline-primary">
+              <span class="icon-thumbs-up text-primary"></span>
+            </button>
+          </form>
+        </div>
+        <div class="col-md-1 center arrow">
+          <form data-remote="true" action="/questions/<%=question.id%>/thumbsdown" method="post">
+            <button type="submit" class="btn btn-outline-danger">
+              <span class="icon-thumbs-down text-danger"></span>
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 arrow" style="padding-left: 40px">
+          <span class="status">Status: <%= question.status %></span>
+        </div>
+        <div class="col-md-1 center arrow">
+          <span class="upvotes"><%= question.upvotes %></span>
+        </div>
+        <div class="col-md-1 center arrow">
+          <span class="downvotes"><%= question.downvotes %></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1 center" style="padding-top:5px">
+      <i class="icon-flag icon-2x" style="color:#800000;"></i>
+    </div>
+  </div>
+
+  <div class="separator-sm"></div>
+</div>
