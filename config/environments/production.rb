@@ -89,6 +89,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.web_socket_server_url = "https://classroom-friend.herokuapp.com"
+  config.web_socket_server_url = "wss://classroom-friend.herokuapp.com/cable"
   config.action_cable.disable_request_forgery_protection = true
 end

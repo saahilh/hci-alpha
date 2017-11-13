@@ -7,4 +7,3 @@ test:
 production:
   adapter: redis
   url: redis://redistogo:4b27d6f3969512723c18f0fb65da6ee5@grouper.redistogo.com:11474/
-  channel_prefix: alpha-prototype_production
