@@ -6,7 +6,7 @@
     <div class="separator-md"></div>
 
     <% if course.questions.count > 0 %>
-    <% course.questions.each do |question| %>
+    <% course.questions.order(:upvotes, :id).each do |question| %>
       <div class="question row">
         <div class="col-md-8" style="padding-left:50px">
           <div class="row">
@@ -17,8 +17,16 @@
             <div class="col-md-11" style="padding-top: 10px"><span class="big-text"><%= question.question %></span></div>
           </div>
         </div>
-        <div class="col-md-1" style="padding-top:5px"><div class="btn btn-success">in class</div></div>
-        <div class="col-md-1" style="padding-top:5px"><div class="btn btn-primary">after class</div></div>
+        <div class="col-md-1" style="padding-top:5px">
+          <form method="post" action="/questions/<%=question.id%>/in_class">
+            <button class="btn btn<% if question.status=="answered in class" %>-outline<%end%>-success">in class</button>
+          </form>
+        </div>
+        <div class="col-md-1" style="padding-top:5px">
+          <form method="post" action="/questions/<%=question.id%>/after_class">
+            <button class="btn btn<% if question.status=="will answer after class" %>-outline<%end%>-primary">after class</button>
+          </form>
+        </div>
         <div class="col-md-2" style="padding-top:5px; padding-left:40px">
           <form method="post" action="/questions/<%=question.id%>/delete">
             <button type="submit" class="center icon-trash icon-2x" style="color:#800000;"></button>
