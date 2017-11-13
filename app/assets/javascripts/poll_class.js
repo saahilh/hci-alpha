@@ -28,22 +28,7 @@
 
   $(document).on('click', ".modal-backdrop", function(){$(".modal").click();});
 
-  //$(document.on('page:change',function(){$("#poll-form").attr("style", $("#poll-form").attr("style") + ";height:" + ($(document).height() - 400) + "px");});
-
-  // var data= { labels: ['1', '2', '3'], series: [{data:[10, 5, 15]}]};
-  // var options = {
-  //   axisX: {
-  //     labelInterpolationFnc: function(value) {
-  //       if(value=='1')
-  //         return "Apple";
-  //       else if(value=='2')
-  //         return "Orange";
-  //       else
-  //         return "Banana";
-  //     }
-  //   }
-  // }
-  // var chart = new Chartist.Bar("#results_chart", data, options, null);
+  // $(document.on('page:change',function(){$("#poll-form").attr("style", $("#poll-form").attr("style") + ";height:" + ($(document).height() - 400) + "px");});
 
   // $("#poll-results-modal").on("shown.bs.modal",function(e){
   //   chart.update();
