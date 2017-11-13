@@ -4,16 +4,16 @@
       <h4>If you're a student, enter a class code</h4>
     </div>
   </div>
-  <div class="row">
-    <form action="select_course" method="post">
+  <form action="select_course" method="post">
+    <div class="row">
       <div class="col-md-9 big-line">
         <input class="awesomplete" name="course_code" type="textarea" placeholder="e.g., ECSE 424" data-list=<%=Course.all.pluck(:name).join(",")%>>
       </div>
       <div class="col-md-3 big-line">
         <button type="submit"class="btn btn-inverse fit big-btn">Join Class</button>
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
 </div>
 
 <div class="separator-md"></div>
@@ -29,19 +29,19 @@
     <div class="col-md-4"><span>Password</span></div>
     <div class="col-md-3"></div>
   </div>
-  <div class="row">
-    <form action="login" method="post">
+  <form action="login" method="post">
+    <div class="row">
       <div class="col-md-5 big-line"><input type="textarea" name="email" placeholder="e.g., john.doe@mail.mcgill.ca"/></div>
       <div class="col-md-4 big-line"><input type="password" name="pw" /></div>
       <div class="col-md-3 big-line">
-        <button type="submit" class="btn btn-inverse fit big-btn">Login</div>
-        </div>
-      </form>
+        <button type="submit" class="btn btn-inverse fit big-btn">Login</button>
+      </div>
     </div>
-    <div class="separator-sm"></div>
-    <div class="row">
-      <div class="col-md-12" style="text-align:right;"><span class="big-text">or <b data-toggle="modal" data-target="#create-account-modal" style="cursor:pointer; ">click here to create an account</b></span></div>
-    </div>
+  </form>
+  <div class="separator-sm"></div>
+  <div class="row">
+    <div class="col-md-12" style="text-align:right;"><span class="big-text">or <b data-toggle="modal" data-target="#create-account-modal" style="cursor:pointer; ">click here to create an account</b></span></div>
   </div>
+</div>
 
-  <%= render 'create_account_modal' %>
+<%= render 'create_account_modal' %>

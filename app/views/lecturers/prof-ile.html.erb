@@ -1,3 +1,16 @@
+<div class="row">
+  <div class="col-md-8"></div>
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-8">
+        <a href="/index.html"><div class="btn btn-inverse fit pull-right" style="font-size: 30px; padding-top: 10px; padding-bottom: 10px; padding-right: 10px; opacity: 0.5"><i class="icon-arrow-left"></i>Logout</div></a>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="classes">
   <div class="row"><div class="col-md-12"><span>Classes</span></div></div>
   <div class="separator-sm"></div>
@@ -7,20 +20,29 @@
       <% if lecturer.courses.count > 0 %>
       <% lecturer.courses.each_with_index do |course, index| %>
       <% if index % 3 == 0 && index!=0 %>
-        </div>
-        <div class="separator-sm"></div>
-        <div class="row">
+    </div>
+    <div class="separator-sm"></div>
+    <div class="row">
       <% end %>
       <div class="col-md-4 big-line">
-        <a href="/courses/<%=course.id%>/course_page">
-          <div class="btn btn-inverse fit big-btn">
-            <%= course.name%>
+        <div class="row">
+          <div class="col-md-9">
+            <a href="/courses/<%=course.id%>/course_page">
+              <div class="btn btn-inverse fit big-btn">
+                <%= course.name%>
+              </div>
+            </a>
           </div>
-        </a>
+          <div class="col-md-3">
+            <form action="/courses/<%=course.id%>/delete" method="post">
+              <button type="submit" class="btn btn-danger fit big-btn">X</button>
+            </form>
+          </div>
+        </div>
       </div>
       <% end %>
       <% else %>
-        <div class="row"><div class="col-md-12"><h1 class="center"> <i class="arrow">(you have no courses)</i> </h1></div></div>
+      <div class="row"><div class="col-md-12"><h1 class="center"> <i class="arrow">(you have no courses)</i> </h1></div></div>
       <% end %>
     </div>
   </div>
@@ -34,7 +56,7 @@
   <div class="separator-sm"></div>
 
   <div class="row">
-    <div class="col-md-12 big-line"><input name="new_course" type="textarea" placeholder="Enter course code (e.g., ECSE 424)"/></div>
+    <div class="col-md-12 big-line"><input id="new-course-code" name="new_course" type="textarea" placeholder="Enter course code (e.g., ECSE 424)"/></div>
   </div>
   <div class="hidden"><input name="lecturer_id" value=<%=lecturer.id if !lecturer.blank? %>></div>
   <div class="separator-md"></div>

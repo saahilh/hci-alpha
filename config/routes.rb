@@ -18,11 +18,15 @@ Rails.application.routes.draw do
   post "/questions/*id/delete" => "questions#delete"
   post "/questions/*id/in_class" => "questions#in_class"
   post "/questions/*id/after_class" => "questions#after_class"
+  post "/questions/*id/thumbsup" => "questions#thumbsup"
+  post "/questions/*id/thumbsdown" => "questions#thumbsdown"
 
   post "/courses/create" => "courses#create"
   post "/lecturers/create" => "lecturers#create"
 
   post 'courses/*id/ask_question' => "courses#ask_question"
+  post 'courses/*id/delete' => "courses#delete"
+
   post "login" => "lecturers#login"
   post 'select_course' => "courses#select_course"
 end

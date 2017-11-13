@@ -7,7 +7,7 @@
     $("#poll-form").append($(e));
   }
 
-  $(document).ready(function(){ addOption(); addOption(); addOption();});
+  $(document).on('page:change',function(){ addOption(); addOption(); addOption();});
 
   function removeOption(){
     $("#poll-form separator-md").last().remove();
@@ -26,23 +26,23 @@
     $(".form-control").attr("disabled", "disabled");
   });
 
-    var data= { labels: ['1', '2', '3'], series: [{data:[10, 5, 15]}]};
-  var options = {
-    axisX: {
-      labelInterpolationFnc: function(value) {
-        if(value=='1')
-          return "Apple";
-        else if(value=='2')
-          return "Orange";
-        else
-          return "Banana";
-      }
-    }
-  }
-  var chart = new Chartist.Bar("#results_chart", data, options, null);
+  // var data= { labels: ['1', '2', '3'], series: [{data:[10, 5, 15]}]};
+  // var options = {
+  //   axisX: {
+  //     labelInterpolationFnc: function(value) {
+  //       if(value=='1')
+  //         return "Apple";
+  //       else if(value=='2')
+  //         return "Orange";
+  //       else
+  //         return "Banana";
+  //     }
+  //   }
+  // }
+  // var chart = new Chartist.Bar("#results_chart", data, options, null);
 
-  $("#poll-results-modal").on("shown.bs.modal",function(e){
-    chart.update();
-  });
+  // $("#poll-results-modal").on("shown.bs.modal",function(e){
+  //   chart.update();
+  // });
 
   $(document).on('click', ".modal-backdrop", function(){$(".modal").click();});

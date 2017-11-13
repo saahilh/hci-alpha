@@ -1,43 +1,42 @@
-<%= render 'heading2', course: course.name, href: "/lecturers/#{course.lecturer.id}", button_text: " Home", icon: "icon-home" %>
+<%= render 'heading2', course: course.name, href: "/lecturers/#{course.lecturer.id}", button_text: " Home", icon: "icon-home", logout: true %>
 
 <div id="questions-container" class="row custom-bar" style="overflow-y: auto; overflow-x: hidden;">
   <div class="col-md-1"></div>
   <div id="polling-results" class="col-md-10" style="padding-left: 20px;">
     <div class="separator-md"></div>
-
     <% if course.questions.count > 0 %>
-    <% course.questions.order(:upvotes, :id).each do |question| %>
-      <div class="question row">
-        <div class="col-md-8" style="padding-left:50px">
-          <div class="row">
-            <div class="col-md-1">
-              <div class="row"><div class="col-md-12 arrow"><i class="icon-thumbs-up icon-large white arrow"></i><span> <%= question.upvotes %></span></div></div>
-              <div class="row"><div class="col-md-12 arrow"><i class="icon-thumbs-down icon-large white arrow"></i><span> <%= question.downvotes %></span></div></div>
-            </div>
-            <div class="col-md-11" style="padding-top: 10px"><span class="big-text"><%= question.question %></span></div>
+    <% course.questions.order("upvotes DESC").each do |question| %>
+    <div class="question row">
+      <div class="col-md-8" style="padding-left:50px">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="row"><div class="col-md-12 arrow"><i class="icon-thumbs-up icon-large white arrow"></i><span> <%= question.upvotes %></span></div></div>
+            <div class="row"><div class="col-md-12 arrow"><i class="icon-thumbs-down icon-large white arrow"></i><span> <%= question.downvotes %></span></div></div>
           </div>
-        </div>
-        <div class="col-md-1" style="padding-top:5px">
-          <form method="post" action="/questions/<%=question.id%>/in_class">
-            <button class="btn btn<% if question.status=="answered in class" %>-outline<%end%>-success">in class</button>
-          </form>
-        </div>
-        <div class="col-md-1" style="padding-top:5px">
-          <form method="post" action="/questions/<%=question.id%>/after_class">
-            <button class="btn btn<% if question.status=="will answer after class" %>-outline<%end%>-primary">after class</button>
-          </form>
-        </div>
-        <div class="col-md-2" style="padding-top:5px; padding-left:40px">
-          <form method="post" action="/questions/<%=question.id%>/delete">
-            <button type="submit" class="center icon-trash icon-2x" style="color:#800000;"></button>
-          </form>
+          <div class="col-md-11" style="padding-top: 10px"><span class="big-text"><%= question.question %></span></div>
         </div>
       </div>
+      <div class="col-md-1" style="padding-top:5px">
+        <form method="post" action="/questions/<%=question.id%>/in_class">
+          <button class="btn btn<% if question.status!="answered in class" %>-outline<%end%>-success">in class</button>
+        </form>
+      </div>
+      <div class="col-md-1" style="padding-top:5px">
+        <form method="post" action="/questions/<%=question.id%>/after_class">
+          <button class="btn btn<% if question.status!="will answer after class" %>-outline<%end%>-primary">after class</button>
+        </form>
+      </div>
+      <div class="col-md-2" style="padding-top:5px; padding-left:40px">
+        <form method="post" action="/questions/<%=question.id%>/delete">
+          <button type="submit" class="center icon-trash icon-2x" style="color:#800000;"></button>
+        </form>
+      </div>
+    </div>
 
-      <div class="question-separator separator-sm"></div>
+    <div class="question-separator separator-sm"></div>
     <% end %>
     <% else %>
-      <div class="row"><div class="col-md-12"><h1 class="center"> <i class="arrow">(No questions)</i> </h1></div></div>
+    <div class="row"><div class="col-md-12"><h1 class="center"> <i class="arrow">(No questions)</i> </h1></div></div>
     <% end %>
     <div class="separator-md"></div>
   </div>

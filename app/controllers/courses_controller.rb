@@ -36,4 +36,12 @@ class CoursesController < ActionController::Base
 	def course_page
 		render 'course_page', locals: {course: Course.find(params[:id]) }
 	end
+
+	def delete
+		course = Course.find(params[:id])
+		lecturer = course.lecturer.id
+		Question.where(course_id: course.id).delete_all
+		course.delete
+		redirect_to "/lecturers/#{lecturer}/"
+	end
 end
