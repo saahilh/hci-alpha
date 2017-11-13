@@ -1,0 +1,63 @@
+<%= render 'heading2', href:"/index.html", button_text: "Leave Class", course: course.name, icon: "icon-arrow-left" %>
+
+<div id="questions-container" class="row custom-bar" style="overflow-y: auto; overflow-x: hidden; height: 280px">
+  <div class="col-md-1"></div>
+  <div id="polling-results" class="col-md-10" style="padding-left: 20px; padding-top: 10px; padding-bottom: 10px;">
+    <div class="separator-md"></div>
+    <% if course.questions.count==0 %>
+    <h1 class="center"> No questions available </h1>
+    <div class="separator-md"></div>
+    <% else %>
+    <% course.questions.all.each do |question| %>
+    <div class="question row">
+      <div class="col-md-11" style="padding-left:30px">
+        <div class="row">
+          <div class="col-md-10">
+            <span class="big-text"><%= question.question %></span>
+          </div>
+          <div class="col-md-1 center arrow"><i class="icon-thumbs-up icon-large white"></i></div>
+          <div class="col-md-1 center arrow"><i class="icon-thumbs-down icon-large white"></i></div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 arrow" style="padding-left: 40px">
+            <span>Status: <%= question.status %></span>
+          </div>
+          <div class="col-md-1 center arrow">
+            <span><%= question.upvotes %></span>
+          </div>
+          <div class="col-md-1 center arrow">
+            <span><%= question.downvotes %></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1 center" style="padding-top:5px">
+        <i class="icon-flag icon-2x" style="color:#800000;"></i>
+      </div>
+    </div>
+
+    <div class="separator-md"></div>
+    <% end %>
+    <% end %>
+
+    <div class="col-md-1"></div>
+  </div>
+</div>
+
+<div class="separator-md"></div>
+
+<div id="ask" class="row">
+  <form action="ask_question" method="post">
+    <div class="col-md-1"></div>
+    <div class="col-md-7 big-line">
+      <input name="question" type="textarea" placeholder="Enter question here"/>
+    </div>
+    <div class="col-md-2 big-line center" style="padding-right:5px"><button type="submit" class="btn btn-inverse fit big-btn">Ask</button></div>
+    <div class="col-md-2"></div>
+  </form>
+</div>
+
+<div class="col-md-12" style="text-align:right;">
+  <b data-toggle="modal" data-target="#poll-modal" style="cursor:pointer">click here to test poll modal</b>
+</div>
+
+<%= render 'poll_modal' %>

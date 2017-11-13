@@ -1,0 +1,45 @@
+<%= render 'heading2', course: course.name, href: "/lecturers/#{course.lecturer.id}", button_text: " Home", icon: "icon-home" %>
+
+<div id="questions-container" class="row custom-bar" style="overflow-y: auto; overflow-x: hidden;">
+  <div class="col-md-1"></div>
+  <div id="polling-results" class="col-md-10" style="padding-left: 20px;">
+    <div class="separator-md"></div>
+
+    <% if course.questions.count > 0 %>
+    <% course.questions.each do |question| %>
+      <div class="question row">
+        <div class="col-md-8" style="padding-left:50px">
+          <div class="row">
+            <div class="col-md-1">
+              <div class="row"><div class="col-md-12 arrow"><i class="icon-thumbs-up icon-large white arrow"></i><span> <%= question.upvotes %></span></div></div>
+              <div class="row"><div class="col-md-12 arrow"><i class="icon-thumbs-down icon-large white arrow"></i><span> <%= question.downvotes %></span></div></div>
+            </div>
+            <div class="col-md-11" style="padding-top: 10px"><span class="big-text"><%= question.question %></span></div>
+          </div>
+        </div>
+        <div class="col-md-1" style="padding-top:5px"><div class="btn btn-success">in class</div></div>
+        <div class="col-md-1" style="padding-top:5px"><div class="btn btn-primary">after class</div></div>
+        <div class="col-md-2" style="padding-top:5px; padding-left:40px">
+          <form method="post" action="/questions/<%=question.id%>/delete">
+            <button type="submit" class="center icon-trash icon-2x" style="color:#800000;"></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="question-separator separator-sm"></div>
+    <% end %>
+    <% else %>
+      <div class="row"><div class="col-md-12"><h1 class="center"> <i class="arrow">(No questions)</i> </h1></div></div>
+    <% end %>
+    <div class="separator-md"></div>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+
+<div class="separator-md"></div>
+
+<div id="poll-button" class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4 big-line"><a href="poll_class.html"><div class="btn btn-inverse fit big-btn">Poll Class</div></a></div>
+  <div class="col-md-4"></div>
+</div>

@@ -1,0 +1,49 @@
+<div id="classes">
+  <div class="row"><div class="col-md-12"><span>Classes</span></div></div>
+  <div class="separator-sm"></div>
+
+  <div id="class-list">
+    <div class="row">
+      <% if lecturer.courses.count > 0 %>
+      <% lecturer.courses.each_with_index do |course, index| %>
+      <% if index % 3 == 0 && index!=0 %>
+        </div>
+        <div class="separator-sm"></div>
+        <div class="row">
+      <% end %>
+      <div class="col-md-4 big-line">
+        <a href="/courses/<%=course.id%>/course_page">
+          <div class="btn btn-inverse fit big-btn">
+            <%= course.name%>
+          </div>
+        </a>
+      </div>
+      <% end %>
+      <% else %>
+        <div class="row"><div class="col-md-12"><h1 class="center"> <i class="arrow">(you have no courses)</i> </h1></div></div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="separator-lg"></div>
+<div class="separator-lg"></div>
+
+<form action="/courses/create" method="post" id="new-class">
+  <div class="row"><div class="col-md-12"><span>Add class</span></div></div>
+  <div class="separator-sm"></div>
+
+  <div class="row">
+    <div class="col-md-12 big-line"><input name="new_course" type="textarea" placeholder="Enter course code (e.g., ECSE 424)"/></div>
+  </div>
+  <div class="hidden"><input name="lecturer_id" value=<%=lecturer.id if !lecturer.blank? %>></div>
+  <div class="separator-md"></div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 big-line"><button type="submit" class="btn btn-inverse fit big-btn">Create new class</button></div>
+    <div class="col-md-4"></div>
+  </div>
+</form>
+
+<div class="separator-md"></div>
