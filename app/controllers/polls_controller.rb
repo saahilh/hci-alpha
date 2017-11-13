@@ -25,6 +25,11 @@ class PollsController < ActionController::Base
 
 		CourseChannel.broadcast_to(course, poll_end: true)
 
+		data = poll.options.pluck(:value, :selected)
+
+		headings = data[0]
+		values = data[1]
+
 		render 'professor_poll_results', locals: {poll: poll}
 	end
 
