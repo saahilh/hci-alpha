@@ -1,11 +1,15 @@
+<script>
+  $(document).on('click', "#submission button", function(){ $("#submission").hide(); $(".confirmation").show(); })
+</script>
+
 <div id="create-account-modal" class="modal fade" role="dialog">
   <div class="modal-dialog modal-sm">
     <div class="modal-content" style="background-color:#4d4c4c; opacity:0.8; margin-top:4; padding-top:4 ">
       <div class="modal-header">
-        <button class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title center" style="border:none;">Create an Account</h4>
+        <button class="close" data-dismiss="modal">&times;</button>
       </div>
-      <div class="modal-body">
+      <div id="submission" class="modal-body">
         <form action="/lecturers/create" method="post">
           <div class="form-group">
             <label for="email">Preferred Name</label>
@@ -25,22 +29,37 @@
           </div>
           <div class="row">
             <div class="col-md-12 center big-line">
-              <button type="button" class="btn btn-inverse big-btn" data-dismiss="modal" data-toggle="modal" data-target="#confirm-account-modal">
+              <button type="submit" data-remote="true" class="btn btn-inverse big-btn">
                 Continue
               </button>
             </div>
           </div>
         </form>
       </div>
+      <div class="modal-body confirmation" style="display:none">
+        <h4 class="center">Your account has been successfully created! </h4>
+
+        <div class="separator-lg"></div>
+
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <button type="button" class="btn btn-inverse big-btn fit" data-dismiss="modal">
+              Okay
+            </button>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <style>
-  .modal-dialog.modal-sm{
-    margin-top: 50px;
-    margin-bottom: 90px;
-  }
+.modal-dialog.modal-sm{
+  margin-top: 50px;
+  margin-bottom: 90px;
+}
 </style>
 
 <%= render 'confirm_account_modal' %>

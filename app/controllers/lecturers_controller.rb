@@ -23,6 +23,6 @@ class LecturersController < ActionController::Base
       msg = "Successfully created account"
       Lecturer.create(name: params[:name], password: params[:pw], email: params[:email])
     end
-    render 'message', locals:{ msg: msg, href: "/index.html" }
+    # render 'message', locals:{ msg: msg, href: "/index.html" }
   end
 end
