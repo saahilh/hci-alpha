@@ -1,0 +1,17 @@
+<div id="confirm-account-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content"> 
+    <!-- background-color:#4d4c4c; -->
+      <div class="modal-body">
+        <p><font size="+1">
+          Your account has been successfully created! 
+        </font></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          Okay
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
