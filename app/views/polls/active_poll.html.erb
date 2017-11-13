@@ -1,0 +1,61 @@
+<%= render 'heading2', course: course.name, href: "course_page.html", button_text: "Back", icon: "icon-arrow-left", logout: false %>
+
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.1.2/coffee-script.min.js"></script>
+
+<script type="text/coffeescript">
+  App.cable.subscriptions.create { channel: "CourseChannel", room: "<%=course.name%>" },
+    received: (data) ->
+      if data["answered"]?
+        $("#counter").text(parseInt($("#counter").text()) + 1);
+</script>
+
+<div class="row"><div class="col-md-12"><span>Question</span></div></div>
+<div class="separator-sm"></div>
+
+<div id="poll-form" class="form-group custom-bar" style="overflow-y: auto; overflow-x: hidden; height: 280px; padding-left: 15px">
+
+  <div class="row">
+    <div class="col-md-12 big-line">
+      <input type="textarea" value="<%=poll.question%>"/>
+    </div>
+  </div>
+  
+  <div class="separator-sm"></div>
+
+  <% poll.options.each do |option| %>
+  <div id="option<%option.number%>" class="row">
+    <div class="col-md-1">
+      <span>
+        Option <%=option.number%>
+      </span>
+    </div>
+    <div class="col-md-11 big-line">
+      <input id="opt<%=option.number%>" name="opt<%=option.number%>" type="textarea" class="form-control" value="<%=option.value%>">
+    </div>
+  </div>
+  <div class="separator-sm"></div>
+  <% end %>
+
+  <div class="separator-md"></div>
+</div>
+
+<div id="response_counter" class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4"><div class="btn btn-inverse fit disabled"><span id="counter">0</span> out of <%= ActionCable.server.connections.length %> students have answered</div></div>
+  <div class="col-md-4"></div>
+</div>
+
+<div class="separator-sm"></div>
+
+<form action="end_poll" method="post">
+  <input class="hidden" name="poll_id" value="<%=poll.id%>"/>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 big-line">
+      <button type="submit" class="btn btn-inverse fit big-btn">
+        <span>End Poll and View Results</span>
+      </button>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</form>

@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   get 'select_course' => "application#index"
 
   get "courses/*id/course_page" => "courses#course_page"
-  get 'courses/*id/poll_class' => 'courses#poll'
+  get 'courses/*id/poll_class' => 'polls#new'
+
+  get "courses/*id/end_poll" => "polls#new"
+  get "courses/*id/begin_poll" => "polls#new"
 
   post "/questions/*id/delete" => "questions#delete"
   post "/questions/*id/in_class" => "questions#in_class"
@@ -27,7 +30,10 @@ Rails.application.routes.draw do
 
   post 'courses/*id/ask_question' => "courses#ask_question"
   post 'courses/*id/delete' => "courses#delete"
-  post "courses/*id/submit_poll" => "courses#test_poll"
+  post "courses/*id/begin_poll" => "polls#create"
+  post "courses/*id/end_poll" => "polls#end"
+
+  post "courses/*id/answer_poll" => "polls#answer"
 
   post "login" => "lecturers#login"
   post 'select_course' => "courses#select_course"

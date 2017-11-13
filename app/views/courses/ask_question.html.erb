@@ -17,6 +17,9 @@
         $("#q"+ data["thumbsup"] + " .upvotes").text(" " + data["count"]);
       else if data["thumbsdown"]?
         $("#q"+ data["thumbsdown"] + " .downvotes").text(" " + data["count"]);
+      else if data["poll"]
+        $("#modal-button").click()
+        $("#poll-body").html(data["poll"])
 </script>
 
 <div id="questions-container" class="row custom-bar" style="overflow-y: auto; overflow-x: hidden; height: 280px">
@@ -48,8 +51,6 @@
   </div>
 </form>
 
-<div class="col-md-12" style="text-align:right;">
-  <b data-toggle="modal" data-target="#poll-modal" style="cursor:pointer">click here to test poll modal</b>
-</div>
+<a data-toggle="modal" data-target="#poll-modal" class="hidden" id="modal-button"></a>
 
-<%= render 'poll_modal' %>
+<%= render 'student_poll_container_modal' %>

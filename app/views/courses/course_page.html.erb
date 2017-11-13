@@ -1,4 +1,4 @@
-<%= render 'heading2', course: course.name, href: "/lecturers/#{course.lecturer.id}", button_text: " Home", icon: "icon-home", logout: true %>
+<%= render 'heading2', course: course.name, href: "/lecturers/#{course.lecturer.id}", button_text: " Leave Class", icon: "icon-arrow-left", logout: true %>
 
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.1.2/coffee-script.min.js"></script>
 
@@ -21,7 +21,7 @@
         $("#q"+ data["thumbsdown"] + " .downvotes").text(" " + data["count"]);
 </script>
 
-<div id="questions-container" class="row custom-bar" style="overflow-y: auto; overflow-x: hidden;">
+<div id="questions-container" class="row custom-bar" style="overflow-y: auto; overflow-x: hidden; height: 280px">
   <div class="col-md-1"></div>
   <div id="questions" class="col-md-10" style="padding-left: 20px;">
     <div class="separator-md"></div>

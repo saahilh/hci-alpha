@@ -1,0 +1,38 @@
+<div class="row" style="padding-left:10px">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <div class="separator-lg"></div>
+    <div id="poll-question">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 big-text center"><span><%=poll.question%></span></div>
+        <div class="col-md-1"></div>
+      </div>
+      <div class="separator-lg"></div>
+      <div id="responses" class="row">
+        <% poll.options.each_with_index do |option, index| %>
+        <% if index % 3 == 0 && index != 0 %>
+      </div>
+      <div class="row">
+        <%end%>
+        <div class="col-md-4">
+          <form action="<%=poll.course.id%>/answer_poll" method="post">
+            <button data-remote="true" type="submit" name="opt<%=option.id%>" class="btn btn-inverse fit response-button"><%= option.value %></button>
+          </form>
+        </div>
+        <% end %>
+      </div>
+      <div class="row" id="change-response" style="display:none">
+        <div class="col-md-12">
+          <div class="row"><div class="col-md-12"><h4 class="center">Your response has been submitted. Waiting for other student's votes</h4></div></div>
+          <div class="separator-lg"></div>
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6"><button class="btn btn-inverse fit" data-dismiss="modal">Close</button></div>
+            <div class="col-md-3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>

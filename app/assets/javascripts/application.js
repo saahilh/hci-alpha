@@ -22,6 +22,8 @@ $("#new-course-code").keydown(function (event) {
 		$(this).submit();
 });
 
+$(document).on('click', ".response-button", function(){$("#responses").hide(); $("#change-response").show();})
+
 $(document).on('page:change', function(){
   (function($){
     $(window).on("load",function(){

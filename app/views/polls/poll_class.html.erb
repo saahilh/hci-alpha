@@ -1,0 +1,20 @@
+<%= render 'heading2', course: course.name, href: "course_page.html", button_text: "Back", icon: "icon-arrow-left", logout: false %>
+
+<div class="row"><div class="col-md-12"><span>Question</span></div></div>
+<div class="separator-sm"></div>
+
+<form action="begin_poll" method="post">
+  <div id="poll-form" class="form-group custom-bar" style="overflow-y: auto; overflow-x: hidden; height: 280px; padding-left: 15px">
+    <div class="row">
+      <div class="col-md-12 big-line"><input name="question" type="textarea" class="form-control" placeholder="Type your question for the poll here"/></div>
+    </div>
+
+    <div class="separator-md"></div>
+  </div>
+
+  <div id="add_or_remove_options" class="row">
+     <div class="col-md-4 big-line"><div id="add-option" class="btn btn-primary big-btn fit">Add Option</div></div>
+    <div class="col-md-4 big-line"><div id="remove-option" class="btn btn-danger big-btn fit">Remove Option</div></div>
+    <div class="col-md-4 big-line"><button type="submit" class="btn btn-inverse fit big-btn"><span>Initiate Polling</span></div>
+  </div>
+</form>
