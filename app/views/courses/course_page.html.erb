@@ -7,6 +7,7 @@
     received: (data) ->
       if data["prof_question"]?
         $("#questions").append(data["prof_question"])
+        $(".no-quest").remove();
       else if data["delete_question"]?
         $("#questions #q" + data["delete_question"]).remove();
       else if data["in_class"]?
@@ -30,7 +31,7 @@
     <%= render 'prof_questions', question: question %>
     <% end %>
     <% else %>
-    <div class="row"><div class="col-md-12"><h1 class="center"> <i class="arrow">(No questions)</i> </h1></div></div>
+    <div class="row no-quest"><div class="col-md-12"><h1 class="center"> <i class="arrow">(No questions)</i> </h1></div></div>
     <% end %>
     <div class="separator-md"></div>
   </div>

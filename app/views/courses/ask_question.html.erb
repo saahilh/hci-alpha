@@ -7,6 +7,7 @@
     received: (data) ->
       if data["question"]?
         $("#questions").append(data["question"])
+        $(".no-quest").remove();
       else if data["delete_question"]?
         $("#questions #q" + data["delete_question"]).remove();
       else if data["in_class"]?
@@ -27,8 +28,8 @@
   <div id="questions" class="col-md-10" style="padding-left: 20px; padding-top: 10px; padding-bottom: 10px;">
     <div class="separator-md"></div>
     <% if course.questions.count==0 %>
-    <h1 class="center"> No questions available </h1>
-    <div class="separator-md"></div>
+    <h1 class="no-quest center"> No questions available </h1>
+    <div class="no-quest separator-md"></div>
     <% else %>
     <% course.questions.order("upvotes DESC").all.each do |question| %>
     <%= render 'student_questions', question: question %>
