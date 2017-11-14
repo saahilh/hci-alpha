@@ -2,14 +2,14 @@
   $(document).on('click', "#submission button", function(){ $("#submission").hide(); $(".confirmation").show(); })
 </script>
 
-<div id="create-account-modal" class="modal fade" role="dialog">
+<div id="create-account-modal" class="modal fade" role="dialog" style="overflow:hidden">
   <div class="modal-dialog modal-sm">
-    <div class="modal-content" style="background-color:#4d4c4c; opacity:0.8; margin-top:4; padding-top:4 ">
+    <div class="modal-content" style="background-color:#4d4c4c; opacity:0.8;">
       <div class="modal-header">
         <h4 class="modal-title center" style="border:none;">Create an Account</h4>
         <button class="close" data-dismiss="modal">&times;</button>
       </div>
-      <div id="submission" class="modal-body">
+      <div id="submission" class="modal-body" style="max-height: 500px !important; padding-top: 50px">
         <form action="/lecturers/create" method="post">
           <div class="form-group">
             <label for="email">Preferred Name</label>
