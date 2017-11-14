@@ -1,6 +1,6 @@
 <%= render 'heading2', course: course.name, href: "/lecturers/#{course.lecturer.id}", button_text: " Leave Class", icon: "icon-arrow-left", logout: true %>
 
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.1.2/coffee-script.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.1.2/coffee-script.min.js"></script>
 
 <script type="text/coffeescript">
   App.cable.subscriptions.create { channel: "CourseChannel", room: "<%=course.name%>" },
