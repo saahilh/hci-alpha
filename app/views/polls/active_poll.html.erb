@@ -3,10 +3,11 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.1.2/coffee-script.min.js"></script>
 
 <script type="text/coffeescript">
-  App.cable.subscriptions.create { channel: "CourseChannel", room: "<%=course.name%>" },
-    received: (data) ->
-      if data["answered"]?
-        $("#counter").text(parseInt($("#counter").text()) + 1);
+  ready = ->
+    App.cable.subscriptions.create { channel: "CourseChannel", room: "<%=course.name%>" },
+      received: (data) ->
+        if data["answered"]?
+          $("#counter").text(parseInt($("#counter").text()) + 1);
 </script>
 
 <div class="row"><div class="col-md-12"><span>Question</span></div></div>

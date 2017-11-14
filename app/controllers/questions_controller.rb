@@ -2,11 +2,10 @@ class QuestionsController < ActionController::Base
 	def delete
 		question = Question.find(params[:id])
 		course = Course.find(question.course.id)
-		question_id = question.id
 		question.delete
 		
 		CourseChannel.broadcast_to(course, 
-			delete_question: question_id
+			delete_question: params[:id]
 		)
 	end
 

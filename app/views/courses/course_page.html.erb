@@ -3,23 +3,24 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.1.2/coffee-script.min.js"></script>
 
 <script type="text/coffeescript">
-  App.cable.subscriptions.create { channel: "CourseChannel", room: "<%=course.name%>" },
-    received: (data) ->
-      if data["prof_question"]?
-        $("#questions").append(data["prof_question"])
-        $(".no-quest").remove();
-      else if data["delete_question"]?
-        $("#questions #q" + data["delete_question"]).remove();
-      else if data["in_class"]?
-        $("#q"+ data["in_class"] + " .in-class button").addClass("btn-success");
-        $("#q"+ data["in_class"] + " .after-class button").removeClass("btn-primary");
-      else if data["after_class"]?
-        $("#q"+ data["after_class"] + " .after-class button").addClass("btn-primary");
-        $("#q"+ data["after_class"] + " .in-class button").removeClass("btn-success");
-      else if data["thumbsup"]?
-        $("#q"+ data["thumbsup"] + " .upvotes").text(" " + data["count"]);
-      else if data["thumbsdown"]?
-        $("#q"+ data["thumbsdown"] + " .downvotes").text(" " + data["count"]);
+  ready = ->
+    App.cable.subscriptions.create { channel: "CourseChannel", room: "<%=course.name%>" },
+      received: (data) ->
+        if data["prof_question"]?
+          $("#questions").append(data["prof_question"])
+          $(".no-quest").remove();
+        else if data["delete_question"]?
+          $("#questions #q" + data["delete_question"]).remove();
+        else if data["in_class"]?
+          $("#q"+ data["in_class"] + " .in-class button").addClass("btn-success");
+          $("#q"+ data["in_class"] + " .after-class button").removeClass("btn-primary");
+        else if data["after_class"]?
+          $("#q"+ data["after_class"] + " .after-class button").addClass("btn-primary");
+          $("#q"+ data["after_class"] + " .in-class button").removeClass("btn-success");
+        else if data["thumbsup"]?
+          $("#q"+ data["thumbsup"] + " .upvotes").text(" " + data["count"]);
+        else if data["thumbsdown"]?
+          $("#q"+ data["thumbsdown"] + " .downvotes").text(" " + data["count"]);
 </script>
 
 <div id="questions-container" class="row custom-bar" style="overflow-y: auto; overflow-x: hidden; height: 280px">
