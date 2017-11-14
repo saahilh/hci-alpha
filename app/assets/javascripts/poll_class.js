@@ -27,9 +27,3 @@
   });
 
   $(document).on('click', ".modal-backdrop", function(){$(".modal").click();});
-
-  // $(document.on('page:change',function(){$("#poll-form").attr("style", $("#poll-form").attr("style") + ";height:" + ($(document).height() - 400) + "px");});
-
-  // $("#poll-results-modal").on("shown.bs.modal",function(e){
-  //   chart.update();
-  // });

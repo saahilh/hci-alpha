@@ -40,5 +40,5 @@ $(document).on('page:change', function(){
   $("#questions-container").attr("style", $("#questions-container").attr("style") + ";height:" + ($(document).height() - 400) + "px");
 });
 
-  $(document).on('click', ".icon-flag", function(){$(this).closest(".question.row").hide();})
-  $(document).on('click', ".modal-backdrop", function(){$(".modal").click();});
+$(document).on('click', ".icon-flag", function(){$(this).closest(".question.row").hide();})
+$(document).on('click', ".modal-backdrop", function(){$(".modal").click();});

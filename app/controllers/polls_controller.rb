@@ -27,10 +27,7 @@ class PollsController < ActionController::Base
 
 		data = poll.options.pluck(:value, :selected)
 
-		headings = data[0]
-		values = data[1]
-
-		render 'professor_poll_results', locals: {poll: poll}
+		render 'professor_poll_results', locals: {poll: poll, data: data}
 	end
 
 	def answer

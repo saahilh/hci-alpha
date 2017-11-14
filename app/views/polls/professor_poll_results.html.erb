@@ -1,3 +1,6 @@
+<%= javascript_include_tag "//www.google.com/jsapi" %>
+<%= javascript_include_tag "application", "chartkick" %>
+
 <div class="row" style="padding-left:10px">
   <div class="col-md-1"></div>
   <div class="col-md-10">
@@ -12,7 +15,7 @@
       
       <div class="row" style="padding-left:10px">
         <div class="col-md-12">
-          <div id="results_chart" class="ct-chart"></div>
+          <%= column_chart data %>
         </div>
       </div>
 
