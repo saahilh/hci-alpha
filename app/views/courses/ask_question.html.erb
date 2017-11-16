@@ -1,27 +1,36 @@
 <%= render 'heading2', href:"/index.html", button_text: "Leave Class", course: course.name, icon: "icon-arrow-left", logout: false %>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.1.2/coffee-script.min.js"></script>
+<%= javascript_tag "room_name = \"#{course.name}\"" %>
 
-<script type="text/coffeescript">
-  ready = ->
-    App.cable.subscriptions.create { channel: "CourseChannel", room: "<%=course.name%>" },
-      received: (data) ->
-        if data["question"]?
-          $("#questions").append(data["question"])
-          $(".no-quest").remove();
-        else if data["delete_question"]?
-          $("#questions #q" + data["delete_question"]).remove();
-        else if data["in_class"]?
-          $("#questions #q" + data["in_class"] + " .status").text("Status: answered in class")
-        else if data["after_class"]?
-          $("#questions #q" + data["after_class"] + " .status").text("Status: will answer after class")
-        else if data["thumbsup"]?
-          $("#q"+ data["thumbsup"] + " .upvotes").text(" " + data["count"]);
-        else if data["thumbsdown"]?
-          $("#q"+ data["thumbsdown"] + " .downvotes").text(" " + data["count"]);
-        else if data["poll"]
-          $("#modal-button").click()
-          $("#poll-body").html(data["poll"])
+<script>
+  App.room = App.cable.subscriptions.create({
+    channel: "CourseChannel",
+    room: room_name
+  }, {
+    connected: function() {},
+    disconnected: function() {},
+    received: function(data) {
+      if(data["question"]){
+        $("#questions").append(data["question"]);
+        $(".no-quest").remove();
+      }
+      else if(data["delete_question"])
+        $("#questions #q" + data["delete_question"]).remove();
+      else if(data["in_class"])
+        $("#questions #q" + data["in_class"] + " .status").text("Status: answered in class")
+      else if(data["after_class"])
+        $("#questions #q" + data["after_class"] + " .status").text("Status: will answer after class")
+      else if(data["thumbsup"])
+        $("#q"+ data["thumbsup"] + " .upvotes").text(" " + data["count"]);
+      else if(data["thumbsdown"])
+        $("#q"+ data["thumbsdown"] + " .downvotes").text(" " + data["count"]);
+      else if(data["poll"]){
+        $("#modal-button").click()
+        $("#poll-body").html(data["poll"])
+      }
+    },
+    speak: function(){}
+  });
 </script>
 
 <div id="questions-container" class="row custom-bar" style="overflow-y: auto; overflow-x: hidden; height: 280px">

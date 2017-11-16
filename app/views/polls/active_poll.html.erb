@@ -1,13 +1,21 @@
 <%= render 'heading2', course: course.name, href: "course_page.html", button_text: "Back", icon: "icon-arrow-left", logout: false %>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.1.2/coffee-script.min.js"></script>
 
-<script type="text/coffeescript">
-  ready = ->
-    App.cable.subscriptions.create { channel: "CourseChannel", room: "<%=course.name%>" },
-      received: (data) ->
-        if data["answered"]?
+<%= javascript_tag "room_name = \"#{course.name}\"" %>
+
+<script>
+  App.room = App.cable.subscriptions.create({
+    channel: "CourseChannel",
+    room: room_name
+  }, {
+    connected: function() {},
+    disconnected: function() {},
+    received: function(data) {
+      if(data["answered"])
           $("#counter").text(parseInt($("#counter").text()) + 1);
+    },
+    speak: function(){}
+  });
 </script>
 
 <div class="row"><div class="col-md-12"><span>Question</span></div></div>
