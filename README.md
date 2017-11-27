@@ -1,24 +1,13 @@
-# README
+# CLASSROOM FRIEND ALPHA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Here's what you need to do:
 
-Things you may want to cover:
+* Have Rails 5.1.4 and Ruby 2.4.1 installed on your machine
 
-* Ruby version
+* Fork or download hci-alpha to some <directory>
 
-* System dependencies
+* In <directory>, run 'rails s'
 
-* Configuration
+* Open a browser (chrome, firefox, or internet explorer - NOT safari) and go to localhost:3000
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* You should see the Classroom Friend login screen
